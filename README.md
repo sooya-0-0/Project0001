@@ -1,4 +1,4 @@
-# Project0001
+-# Project0001
 +# Project0001
 +
 +개인용 미국주식 아침 뉴스 브리핑 자동화 예시입니다.
@@ -43,3 +43,16 @@
 +1. `.env.example`를 복사해 `.env` 생성 (로컬 전용)
 +2. 실제 배포/자동실행은 GitHub Secrets 사용
 +3. 코드에는 `os.getenv(...)`만 사용
++
++
++## Actions 실패 시 점검
++커밋마다 `Failure`가 뜨는 가장 흔한 원인은 Secrets 누락입니다.
++
++필수 Secrets:
++- `OPENAI_API_KEY`
++- `GMAIL_USER`
++- `GMAIL_APP_PASSWORD`
++- `MAIL_TO`
++- `NEWS_API_KEY` 또는 `ALPHA_VANTAGE_API_KEY` 중 최소 1개
++
++워크플로우는 누락 시 자동으로 실행을 건너뛰도록 되어 있습니다. 먼저 Secrets를 등록한 뒤 Actions에서 `Run workflow`로 수동 실행해 확인하세요.
